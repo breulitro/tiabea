@@ -1,0 +1,52 @@
+#!/usr/local/bin/octave -qf
+# Início do semestre
+function _ = EA(x, _x)
+	_ = abs(x - _x);
+endfunction
+
+function _ = ER(x, _x)
+	_ = EA(x, _x)/_x;
+endfunction
+
+function _ = DIGSE(x, _x)
+	mi = 2^-15/2;
+	uer = mi + ER(x, _x); # Acho que isso era pq eu tava declarando errado a função
+	_ = -(0.3 + log(uer));
+endfunction
+
+# MAIN
+printf("EA = %.3f\n", EA(1.2, 1.3));
+printf("ER = %.3f\n", ER(1.2, 1.3));
+printf("DIGSE = %.3f\n", DIGSE(1.2, 1.3));
+
+# Exercício 2
+function _ = fat(x)
+	if (!x)
+		_ = 1;
+	else
+		_ = x * fat(x-1);
+	endif
+endfunction
+
+function _ = seno(x)
+	_ = x;
+	for i = 1:100
+		if (mod(i, 2))
+			_ -= x/fat(2 * i + 1);
+		else
+			_ += x/fat(2 * i + 1);
+		endif
+	endfor
+endfunction
+
+seno(1)
+seno(pi)
+
+# 2b: e^x
+function _ = ena(x)
+	_ = 1;
+	for i = 1:100
+		_ += x^i/fat(i)
+	endfor
+endfunction
+ena(2)
