@@ -29,11 +29,14 @@ printf("ER = %.3f\n", ER(1.2, 1.3));
 printf("DIGSE = %.3f\n", DIGSE(1.2, 1.3));
 
 # Exercício 2
-function _seno(x, X, s)
-	printf("TBD\n");
+function _ = _seno(x, X, s)
+	if (s > 0)
+		if (mod(s, 2))
+		_ = x
+	endif
 endfunction
 
-function seno(x)
+function _ = seno(x)
 	printf("%.3f\n", x);
 endfunction
 

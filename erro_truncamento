@@ -46,7 +46,7 @@ seno(pi)
 function _ = ena(x)
 	_ = 1;
 	for i = 1:100
-		_ += x^i/fat(i)
+		_ += x^i/fat(i);
 	endfor
 endfunction
 ena(2)
